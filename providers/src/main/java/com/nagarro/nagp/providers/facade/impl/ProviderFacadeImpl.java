@@ -1,33 +1,47 @@
 package com.nagarro.nagp.providers.facade.impl;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.nagarro.nagp.providers.entity.Provider;
 import com.nagarro.nagp.providers.facade.ProviderFacade;
+import com.nagarro.nagp.providers.service.ProviderService;
 
 @Component
 public class ProviderFacadeImpl implements ProviderFacade {
 
+	@Autowired
+	ProviderService providerService;
+
 	@Override
 	public Map<String, Object> getAllProviders() {
-		return null;
+		List<Provider> result = providerService.getAllProviders();
+		Map<String, Object> responseData = new HashMap<String, Object>();
+		responseData.put("providers", result);
+		return responseData;
 	}
 
 	@Override
 	public void addProvider(Provider provider) {
+		providerService.addProvider(provider);
 
 	}
 
 	@Override
 	public Map<String, Object> getProviderByUsername(String username) {
-		return null;
+		Provider provider = providerService.getProviderByUsername(username);
+		Map<String, Object> responseData = new HashMap<String, Object>();
+		responseData.put("provider", provider);
+		return responseData;
 	}
 
 	@Override
 	public boolean updateProvider(Provider provider) {
-		return false;
+		return providerService.updateProvider(provider);
 	}
 
 }

@@ -6,10 +6,12 @@ import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
 
 import com.nagarro.nagp.providers.dao.ProviderDao;
 import com.nagarro.nagp.providers.entity.Provider;
 
+@Repository
 public class ProviderDaoImpl implements ProviderDao {
 
 	private static final Logger LOG = LoggerFactory.getLogger(ProviderDaoImpl.class);

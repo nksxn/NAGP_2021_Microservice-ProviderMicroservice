@@ -26,5 +26,9 @@ public class Provider {
 	private String username;
 
 	private String password;
+	
+	private String serviceArea;
+	
+	private boolean availability;
 
 }

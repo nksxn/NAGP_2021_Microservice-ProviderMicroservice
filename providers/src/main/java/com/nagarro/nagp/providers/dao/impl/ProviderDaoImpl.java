@@ -1,4 +1,4 @@
-package com.nagarro.nagp.providers.impl;
+package com.nagarro.nagp.providers.dao.impl;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -37,6 +37,8 @@ public class ProviderDaoImpl implements ProviderDao {
 		provider1.setUsername("vinayPrajapati");
 		provider1.setPassword("qwerty@123");
 		provider1.setExpertise("Carpainter");
+		provider1.setAvailability(Boolean.TRUE);
+		provider1.setServiceArea("North Delhi");
 		provider1.setCreationTime(dtf.format(now));
 		provider1.setModifiedTime(dtf.format(now));
 		Provider provider2 = new Provider();
@@ -48,6 +50,8 @@ public class ProviderDaoImpl implements ProviderDao {
 		provider2.setUsername("gauravKansal");
 		provider2.setPassword("qwerty@123");
 		provider2.setExpertise("Painter");
+		provider2.setAvailability(Boolean.TRUE);
+		provider2.setServiceArea("East Delhi");
 		provider2.setCreationTime(dtf.format(now));
 		provider2.setModifiedTime(dtf.format(now));
 		providers.add(provider1);

@@ -18,4 +18,6 @@ public interface ProviderFacade {
 
 	public boolean updateProvider(Provider provider);
 
+	public void notifyProviders(String serviceRegion);
+
 }

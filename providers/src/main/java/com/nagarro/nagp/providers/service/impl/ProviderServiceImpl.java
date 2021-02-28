@@ -3,6 +3,7 @@ package com.nagarro.nagp.providers.service.impl;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,6 +43,17 @@ public class ProviderServiceImpl implements ProviderService {
 		LocalDateTime now = LocalDateTime.now();
 		provider.setModifiedTime(dtf.format(now));
 		return providerDao.updateUser(provider);
+	}
+
+	@Override
+	public void notifyProviders(String serviceRegion) {
+		List<Provider> notifyProviders = providerDao.getAllProviders().stream()
+				.filter(c -> c.getServiceArea().equalsIgnoreCase(serviceRegion)).collect(Collectors.toList());
+		notify(notifyProviders);
+	}
+
+	private void notify(List<Provider> notifyProviders) {
+		System.out.println("Handle Notifications");
 	}
 
 }

@@ -44,4 +44,9 @@ public class ProviderFacadeImpl implements ProviderFacade {
 		return providerService.updateProvider(provider);
 	}
 
+	@Override
+	public void notifyProviders(String serviceRegion) {
+		providerService.notifyProviders(serviceRegion);
+	}
+
 }

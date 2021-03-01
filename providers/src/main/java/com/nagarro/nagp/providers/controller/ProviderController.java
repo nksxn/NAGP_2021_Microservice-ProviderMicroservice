@@ -71,7 +71,7 @@ public class ProviderController {
 		return new ResponseEntity<Void>(headers, HttpStatus.BAD_REQUEST);
 	}
 
-	@PostMapping()
+	@PostMapping("/notifyProviders")
 	public ResponseEntity<Void> notifyProviders(@RequestBody String serviceRegion) {
 		LOG.info("Working from port " + port + " of Users microservice");
 		providerFacade.notifyProviders(serviceRegion);
@@ -79,4 +79,19 @@ public class ProviderController {
 		return new ResponseEntity<Void>(headers, HttpStatus.OK);
 	}
 
+	@PostMapping("/accept")
+	public ResponseEntity<Void> acceptOrder(@RequestBody String OrderCode, @RequestBody String username) {
+		LOG.info("Working from port " + port + " of Users microservice");
+		providerFacade.acceptOrder(OrderCode, username);
+		HttpHeaders headers = new HttpHeaders();
+		return new ResponseEntity<Void>(headers, HttpStatus.OK);
+	}
+
+	@PostMapping("/notifyProvider")
+	public ResponseEntity<Void> notifyProvider(@RequestBody String username) {
+		LOG.info("Working from port " + port + " of Users microservice");
+		providerFacade.notifyProvider(username);
+		HttpHeaders headers = new HttpHeaders();
+		return new ResponseEntity<Void>(headers, HttpStatus.OK);
+	}
 }

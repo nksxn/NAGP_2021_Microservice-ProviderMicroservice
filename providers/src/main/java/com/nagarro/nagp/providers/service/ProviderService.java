@@ -19,4 +19,8 @@ public interface ProviderService {
 
 	public void notifyProviders(String serviceRegion);
 
+	public void acceptOrder(String orderCode, String username);
+
+	public void notifyProvider(String username);
+
 }

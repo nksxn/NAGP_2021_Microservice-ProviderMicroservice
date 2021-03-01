@@ -49,4 +49,14 @@ public class ProviderFacadeImpl implements ProviderFacade {
 		providerService.notifyProviders(serviceRegion);
 	}
 
+	@Override
+	public void acceptOrder(String orderCode, String username) {
+		providerService.acceptOrder(orderCode, username);
+	}
+
+	@Override
+	public void notifyProvider(String username) {
+		providerService.notifyProvider(username);
+	}
+
 }
